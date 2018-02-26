@@ -8,6 +8,7 @@ import com.kauailabs.navx.frc.AHRS;
 import edu.wpi.first.wpilibj.ADXRS450_Gyro;
 import edu.wpi.first.wpilibj.CounterBase.EncodingType;
 import edu.wpi.first.wpilibj.Encoder;
+import edu.wpi.first.wpilibj.I2C;
 import edu.wpi.first.wpilibj.PIDController;
 import edu.wpi.first.wpilibj.SerialPort.Port;
 import edu.wpi.first.wpilibj.Spark;
@@ -25,8 +26,8 @@ public class DriveTrainSystem extends Subsystem {
 	Spark leftDrive = new Spark(RobotMap.leftDriveMotor);
 	Spark rightDrive = new Spark(RobotMap.rightDriveMotor);
 	
-	public ADXRS450_Gyro gyro = new ADXRS450_Gyro();
-	//public AHRS ahrs = new AHRS(Port.kUSB1);
+	//public ADXRS450_Gyro gyro = new ADXRS450_Gyro();
+	public AHRS gyro = new AHRS(I2C.Port.kOnboard);
 	public Encoder leftEncoder = new Encoder(RobotMap.leftEncoderChannelA, RobotMap.leftEncoderChannelB, false, EncodingType.k4X);
 	//public Encoder rightEncoder = new Encoder(RobotMap.rightEncoderChannelA, RobotMap.rightEncoderChannelB, false, EncodingType.k4X);
 	

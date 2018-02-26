@@ -40,18 +40,18 @@ public class TurnByGyro extends Command {
     	
     	if (targetAngle < currentHeading)
     	{
-    		leftPower = -(.45 + correction);
-    		rightPower = (.45 + correction);
+    		leftPower = -(.5 + correction);
+    		rightPower = (.5 + correction);
     	}
     	else
     	{
-    		leftPower = (.45 + correction);
-    		rightPower = -(.45 + correction);
+    		leftPower = (.5 + correction);
+    		rightPower = -(.5 + correction);
     	}
     	Robot.drive.tankMove(leftPower, rightPower);
     	
     	if (!isStabalizing){
-    		if (Robot.drive.getCurrentHeading() <= targetAngle + threshold && Robot.drive.getCurrentHeading() >= targetAngle - threshold) {
+    		if ((Robot.drive.getCurrentHeading() <= (targetAngle + threshold)) && (Robot.drive.getCurrentHeading() >= (targetAngle - threshold))) {
     			timer.start();
     			isStabalizing = true;
     		}

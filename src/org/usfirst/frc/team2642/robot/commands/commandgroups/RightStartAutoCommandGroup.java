@@ -1,15 +1,19 @@
-package org.usfirst.frc.team2642.robot.commands;
+package org.usfirst.frc.team2642.robot.commands.commandgroups;
+
+import org.usfirst.frc.team2642.robot.commands.DriveByGyro;
+import org.usfirst.frc.team2642.robot.commands.PlaceHolderCommand;
+import org.usfirst.frc.team2642.robot.commands.TurnByGyro;
 
 import edu.wpi.first.wpilibj.command.CommandGroup;
 
 /**
  *
  */
-public class DriveAutoCommandGroup extends CommandGroup {
+public class RightStartAutoCommandGroup extends CommandGroup {
 
-    public DriveAutoCommandGroup() {
+    public RightStartAutoCommandGroup() {
     	//Basic Auto (drive past auto-line)
-    	//addSequential(new DriveByGyro(0, .6, 96, false));
+    	//addSequential(new DriveByGyro(0, .8, 96, false));
     	
     	//Drive to scale
     	/*addSequential(new DriveByGyro(0, .6, 96, false));

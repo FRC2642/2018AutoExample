@@ -7,22 +7,20 @@
 
 package org.usfirst.frc.team2642.robot;
 
+import org.usfirst.frc.team2642.robot.commands.CenterStartAutoCommandGroup;
+import org.usfirst.frc.team2642.robot.commands.ExampleCommand;
+import org.usfirst.frc.team2642.robot.commands.commandgroups.LeftStartAutoCommandGroup;
+import org.usfirst.frc.team2642.robot.commands.commandgroups.RightStartAutoCommandGroup;
+import org.usfirst.frc.team2642.robot.subsystems.DriveTrainSystem;
+import org.usfirst.frc.team2642.robot.subsystems.ExampleSubsystem;
+import org.usfirst.frc.team2642.robot.utilities.RoboRioLogger;
+
 import edu.wpi.cscore.UsbCamera;
-import edu.wpi.first.wpilibj.CameraServer;
 import edu.wpi.first.wpilibj.TimedRobot;
-import edu.wpi.first.wpilibj.Timer;
 import edu.wpi.first.wpilibj.command.Command;
 import edu.wpi.first.wpilibj.command.Scheduler;
 import edu.wpi.first.wpilibj.smartdashboard.SendableChooser;
 import edu.wpi.first.wpilibj.smartdashboard.SmartDashboard;
-import edu.wpi.first.wpilibj.vision.VisionThread;
-
-import org.usfirst.frc.team2642.robot.commands.DriveAutoCommandGroup;
-import org.usfirst.frc.team2642.robot.commands.ExampleCommand;
-import org.usfirst.frc.team2642.robot.subsystems.CanBoardSystem;
-import org.usfirst.frc.team2642.robot.subsystems.DriveTrainSystem;
-import org.usfirst.frc.team2642.robot.subsystems.ExampleSubsystem;
-import org.usfirst.frc.team2642.robot.utilities.RoboRioLogger;
 
 /**
  * The VM is configured to automatically run this class, and to call the
@@ -51,11 +49,13 @@ public class Robot extends TimedRobot {
 	 */
 	@Override
 	public void robotInit() {
-		//while (drive.ahrs.isCalibrating());
+		//while (drive.gyro.isCalibrating());
 		m_oi = new OI();
 		m_chooser.addDefault("Default Auto", new ExampleCommand());
 		// chooser.addObject("My Auto", new MyAutoCommand());
-		m_chooser.addObject("Drive Auto", new DriveAutoCommandGroup());
+		m_chooser.addObject("Right Auto", new RightStartAutoCommandGroup());
+		m_chooser.addObject("Left Auto", new LeftStartAutoCommandGroup());
+		m_chooser.addObject("Center Auto", new CenterStartAutoCommandGroup());
 		SmartDashboard.putData("Auto mode", m_chooser);
 		
 		//cam = CameraServer.getInstance().startAutomaticCapture("Camera", 0);
@@ -114,7 +114,6 @@ public class Robot extends TimedRobot {
 		 */
 		
 		// schedule the autonomous command (example)
-		
 		if (m_autonomousCommand != null) {
 			m_autonomousCommand.start();
 		}
