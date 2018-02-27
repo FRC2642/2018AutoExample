@@ -5,12 +5,10 @@ import org.usfirst.frc.team2642.robot.commands.DriveCommand;
 
 import com.kauailabs.navx.frc.AHRS;
 
-import edu.wpi.first.wpilibj.ADXRS450_Gyro;
 import edu.wpi.first.wpilibj.CounterBase.EncodingType;
 import edu.wpi.first.wpilibj.Encoder;
 import edu.wpi.first.wpilibj.I2C;
 import edu.wpi.first.wpilibj.PIDController;
-import edu.wpi.first.wpilibj.SerialPort.Port;
 import edu.wpi.first.wpilibj.Spark;
 import edu.wpi.first.wpilibj.command.Subsystem;
 import edu.wpi.first.wpilibj.drive.DifferentialDrive;
@@ -29,7 +27,7 @@ public class DriveTrainSystem extends Subsystem {
 	//public ADXRS450_Gyro gyro = new ADXRS450_Gyro();
 	public AHRS gyro = new AHRS(I2C.Port.kOnboard);
 	public Encoder leftEncoder = new Encoder(RobotMap.leftEncoderChannelA, RobotMap.leftEncoderChannelB, false, EncodingType.k4X);
-	//public Encoder rightEncoder = new Encoder(RobotMap.rightEncoderChannelA, RobotMap.rightEncoderChannelB, false, EncodingType.k4X);
+	public Encoder rightEncoder = new Encoder(RobotMap.rightEncoderChannelA, RobotMap.rightEncoderChannelB, false, EncodingType.k4X);
 	
 	DifferentialDrive drive = new DifferentialDrive(leftDrive, rightDrive);
 	
@@ -64,7 +62,7 @@ public class DriveTrainSystem extends Subsystem {
     public void resetEncoders()
     {
     	leftEncoder.reset();
-    	//rightEncoder.reset();
+    	rightEncoder.reset();
     }
     
     public int getPulses()

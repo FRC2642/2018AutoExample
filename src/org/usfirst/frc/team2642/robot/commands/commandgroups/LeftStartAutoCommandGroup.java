@@ -20,6 +20,7 @@ public class LeftStartAutoCommandGroup extends CommandGroup {
     	/*addSequential(new DriveByGyro(0, .8, 140, false));
     	addSequential(new TurnByGyro(90, 2));
     	addSequential(new PlaceHolderCommand(.5));
+    	
     	addSequential(new TurnByGyro(-5, 2));
     	addSequential(new DriveByGyro(0, .7, 55, false));
     	addSequential(new TurnByGyro(137, 2));
@@ -30,7 +31,7 @@ public class LeftStartAutoCommandGroup extends CommandGroup {
     	addSequential(new DriveByGyro(0, .7, 20, false));*/
     	
     	//Drive to left side of scale then to left of switch
-    	/*addSequential(new DriveByGyro(0, .8, 163, false));
+    	addSequential(new DriveByGyro(0, .8, 163, false));
     	addSequential(new DriveByGyro(34, .7, 59, false));
     	addSequential(new DriveByGyro(25, .7, 2, false));
     	addSequential(new DriveByGyro(10, .7, 2, false));
@@ -43,7 +44,7 @@ public class LeftStartAutoCommandGroup extends CommandGroup {
     	addSequential(new DriveByGyro(163, .6, 21, false));
     	addSequential(new PlaceHolderCommand(1.5));
     	addSequential(new DriveByGyro(125, -.6, 16, false));
-    	addSequential(new DriveByGyro(125, .6, 20, false));*/
+    	addSequential(new DriveByGyro(125, .6, 20, false));
     	
     	//Right side of the scale then right side of switch
     	/*addSequential(new DriveByGyro(0, .9, 184, false));

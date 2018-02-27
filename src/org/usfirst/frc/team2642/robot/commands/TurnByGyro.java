@@ -60,7 +60,7 @@ public class TurnByGyro extends Command {
 
     // Make this return true when this Command no longer needs to run execute()
     protected boolean isFinished() {
-    	if (isStabalizing && (timer.get() > .5)) {
+    	if (isStabalizing && (timer.get() > .3)) {
     		return true;
     	}
     	else {

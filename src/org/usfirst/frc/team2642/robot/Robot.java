@@ -7,8 +7,8 @@
 
 package org.usfirst.frc.team2642.robot;
 
-import org.usfirst.frc.team2642.robot.commands.CenterStartAutoCommandGroup;
 import org.usfirst.frc.team2642.robot.commands.ExampleCommand;
+import org.usfirst.frc.team2642.robot.commands.commandgroups.CenterStartAutoCommandGroup;
 import org.usfirst.frc.team2642.robot.commands.commandgroups.LeftStartAutoCommandGroup;
 import org.usfirst.frc.team2642.robot.commands.commandgroups.RightStartAutoCommandGroup;
 import org.usfirst.frc.team2642.robot.subsystems.DriveTrainSystem;
@@ -49,7 +49,7 @@ public class Robot extends TimedRobot {
 	 */
 	@Override
 	public void robotInit() {
-		//while (drive.gyro.isCalibrating());
+		while (drive.gyro.isCalibrating());
 		m_oi = new OI();
 		m_chooser.addDefault("Default Auto", new ExampleCommand());
 		// chooser.addObject("My Auto", new MyAutoCommand());
@@ -158,6 +158,8 @@ public class Robot extends TimedRobot {
 	@Override
 	public void testPeriodic() {
 		Scheduler.getInstance().run();
+		SmartDashboard.putNumber("Left Encoder count", drive.leftEncoder.get());
+		SmartDashboard.putNumber("Right Encoder count", drive.rightEncoder.get());
 		SmartDashboard.putNumber("Encoder count", drive.getDistance());
 		SmartDashboard.putNumber("Angle", drive.gyro.getAngle());
 	}

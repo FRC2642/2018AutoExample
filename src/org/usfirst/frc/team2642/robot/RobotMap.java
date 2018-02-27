@@ -30,8 +30,8 @@ public class RobotMap {
 	public static final double PULSES_PER_INCH = ENCODER_FOOT / 12;
 	public static int leftEncoderChannelA = 0;
 	public static int leftEncoderChannelB = 1;
-	//public static int rightEncoderChannelA =2;
-	//public static int rightEncoderChannelB =3;
+	public static int rightEncoderChannelA =2;
+	public static int rightEncoderChannelB =3;
 	
 	public static int leftDriveMotor = 1;
 	public static int rightDriveMotor = 0;
