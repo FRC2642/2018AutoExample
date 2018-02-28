@@ -12,8 +12,27 @@ import edu.wpi.first.wpilibj.command.CommandGroup;
 public class CenterStartAutoCommandGroup extends CommandGroup {
 
     public CenterStartAutoCommandGroup() {
-    	//Basic forward
-    	//addSequential(new DriveByGyro(0, .7, 108, false));
+    	//basic right side switch (front of switch)
+    	/*addSequential(new PlaceHolderCommand(.1));
+    	addSequential(new DriveByGyro(0, .7, 12, false));
+    	addSequential(new DriveByGyro(50, .7, 96, false));
+    	addSequential(new DriveByGyro(0, .6, 18, false));
+    	addSequential(new TurnByGyro(0, 2));
+    	addSequential(new PlaceHolderCommand(.5));
+    	addSequential(new DriveByGyro(0, -.7, 60, false));
+    	addSequential(new TurnByGyro(-55, 2));
+    	addSequential(new DriveByGyro(-55, .7, 48, false));*/
+    	
+    	//basic left side switch (front of switch)
+    	/*addSequential(new PlaceHolderCommand(.1));
+    	addSequential(new DriveByGyro(0, .7, 12, false));
+    	addSequential(new DriveByGyro(-50, .7, 66, false));
+    	addSequential(new DriveByGyro(0, .6, 36, false));
+    	addSequential(new TurnByGyro(0, 2));
+    	addSequential(new PlaceHolderCommand(.5));
+    	addSequential(new DriveByGyro(0, -.7, 54, false));
+    	addSequential(new TurnByGyro(50, 2));
+    	addSequential(new DriveByGyro(50, .7, 42, false));*/
     	
     	//(Basic left) go to left side of swich
     	/*addSequential(new DriveByGyro(0, .8, 6, false));
@@ -26,7 +45,7 @@ public class CenterStartAutoCommandGroup extends CommandGroup {
     	addSequential(new DriveByGyro(0, .8, 2, false));
     	addSequential(new DriveByGyro(0, .8, 66, false));
     	addSequential(new TurnByGyro(90, 3));
-    	addSequential(new PlaceHolderCommand(.8));/*
+    	addSequential(new PlaceHolderCommand(.8));*/
     	
     	//Go to left scale from left side of switch (added to basic left)
     	/*addSequential(new TurnByGyro(0, 2));
@@ -57,9 +76,9 @@ public class CenterStartAutoCommandGroup extends CommandGroup {
     	addSequential(new TurnByGyro(90, 2));
     	addSequential(new DriveByGyro(90, .8, 66, false));
     	addSequential(new DriveByGyro(90, .6, 48, false));
-    	addSequential(new DriveByGyro(90, .8, 54, false));
+    	addSequential(new DriveByGyro(90, .8, 42, false));
     	addSequential(new TurnByGyro(0, 2));
-    	addSequential(new DriveByGyro(0, .7, 24, false));
+    	addSequential(new DriveByGyro(0, .7, 36, false));
     	addSequential(new PlaceHolderCommand(.8));*/
     	
     	//(Basic right) go to right side of switch

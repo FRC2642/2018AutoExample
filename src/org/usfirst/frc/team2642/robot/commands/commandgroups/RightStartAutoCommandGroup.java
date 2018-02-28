@@ -16,10 +16,12 @@ public class RightStartAutoCommandGroup extends CommandGroup {
     	//addSequential(new DriveByGyro(0, .8, 96, false));
     	
     	//Drive to scale
-    	/*addSequential(new DriveByGyro(0, .6, 96, false));
-    	addSequential(new DriveByGyro(0, .6, 74, false));
-    	addSequential(new DriveByGyro(-32, .57, 42, false));
-    	addSequential(new DriveByGyro(-10, .6, 24, false));*/
+    	/*addSequential(new DriveByGyro(0, .9, 96, false));
+    	addSequential(new DriveByGyro(0, .9, 74, false));
+    	addSequential(new DriveByGyro(-40, .8, 56, false));
+    	addSequential(new DriveByGyro(-10, .7, 24, false));
+    	addSequential(new DriveByGyro(0, .7, 8, false));
+    	addSequential(new TurnByGyro(0, 2));*/
     	
     	//Drive to right side of switch
     	/*addSequential(new DriveByGyro(15, .6, 60, false));
@@ -45,13 +47,13 @@ public class RightStartAutoCommandGroup extends CommandGroup {
     	addSequential(new TurnByGyro(-2, 2));*/
     	
     	//Right scale right switch
-    	addSequential(new DriveByGyro(0, .8, 163, false));
+    	/*addSequential(new DriveByGyro(0, .8, 163, false));
     	addSequential(new DriveByGyro(-34, .8, 62, false));
     	addSequential(new DriveByGyro(-25, .8, 2, false));
     	addSequential(new DriveByGyro(-10, .8, 2, false));
     	addSequential(new DriveByGyro(0, .8, 24, false));
     	addSequential(new TurnByGyro(0, 2));
-    	addSequential(new PlaceHolderCommand(.8));/*
+    	addSequential(new PlaceHolderCommand(.8));
     	addSequential(new DriveByGyro(0, -.8, 8, false));
     	addSequential(new DriveByGyro(0, -.8, 8, false));
     	addSequential(new PlaceHolderCommand(1.5));
