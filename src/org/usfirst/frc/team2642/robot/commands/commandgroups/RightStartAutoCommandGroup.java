@@ -15,13 +15,19 @@ public class RightStartAutoCommandGroup extends CommandGroup {
     	//Basic Auto (drive past auto-line)
     	//addSequential(new DriveByGyro(0, .8, 96, false));
     	
-    	//Drive to scale
-    	/*addSequential(new DriveByGyro(0, .9, 96, false));
+    	//Drive to right scale
+    	addSequential(new DriveByGyro(0, .9, 96, false));
     	addSequential(new DriveByGyro(0, .9, 74, false));
     	addSequential(new DriveByGyro(-40, .8, 56, false));
     	addSequential(new DriveByGyro(-10, .7, 24, false));
     	addSequential(new DriveByGyro(0, .7, 8, false));
-    	addSequential(new TurnByGyro(0, 2));*/
+    	addSequential(new TurnByGyro(0, 2));
+    	addSequential(new PlaceHolderCommand(.8));
+    	addSequential(new DriveByGyro(0, -.8, 8, false));
+    	addSequential(new DriveByGyro(0, -.8, 8, false));
+    	addSequential(new PlaceHolderCommand(1.5));
+    	addSequential(new TurnByGyro(-161, 2));
+    	addSequential(new DriveByGyro(-163, .8, 18, false));
     	
     	//Drive to right side of switch
     	/*addSequential(new DriveByGyro(15, .6, 60, false));

@@ -11,9 +11,13 @@ import org.usfirst.frc.team2642.robot.commands.ExampleCommand;
 import org.usfirst.frc.team2642.robot.commands.commandgroups.CenterStartAutoCommandGroup;
 import org.usfirst.frc.team2642.robot.commands.commandgroups.LeftStartAutoCommandGroup;
 import org.usfirst.frc.team2642.robot.commands.commandgroups.RightStartAutoCommandGroup;
+import org.usfirst.frc.team2642.robot.commands.commandgroups.VectorExample;
 import org.usfirst.frc.team2642.robot.subsystems.DriveTrainSystem;
 import org.usfirst.frc.team2642.robot.subsystems.ExampleSubsystem;
+import org.usfirst.frc.team2642.robot.subsystems.PixySubsystem;
+import org.usfirst.frc.team2642.robot.subsystems.SonarSubsystem;
 import org.usfirst.frc.team2642.robot.utilities.RoboRioLogger;
+import org.usfirst.frc.team2642.robot.utilities.VectorValues;
 
 import edu.wpi.cscore.UsbCamera;
 import edu.wpi.first.wpilibj.TimedRobot;
@@ -36,6 +40,8 @@ public class Robot extends TimedRobot {
 	public static OI m_oi;
 	public static UsbCamera cam;
 	public int numTargets = 0;
+	public static PixySubsystem pixy = new PixySubsystem();
+	public static SonarSubsystem sonar = new SonarSubsystem();
 	
 	Command m_autonomousCommand;
 	SendableChooser<Command> m_chooser = new SendableChooser<>();
@@ -56,6 +62,7 @@ public class Robot extends TimedRobot {
 		m_chooser.addObject("Right Auto", new RightStartAutoCommandGroup());
 		m_chooser.addObject("Left Auto", new LeftStartAutoCommandGroup());
 		m_chooser.addObject("Center Auto", new CenterStartAutoCommandGroup());
+		m_chooser.addObject("Vector Example", new VectorExample());
 		SmartDashboard.putData("Auto mode", m_chooser);
 		
 		//cam = CameraServer.getInstance().startAutomaticCapture("Camera", 0);
@@ -83,7 +90,9 @@ public class Robot extends TimedRobot {
 
 	@Override
 	public void disabledPeriodic() {
-		Scheduler.getInstance().run();
+		SmartDashboard.putNumber("Cube x position", pixy.getCubeCenter());
+		SmartDashboard.putBoolean("isCubeVisible", pixy.isCubeVisible());
+		SmartDashboard.putNumber("Distance", sonar.getDistance());
 	}
 
 	/**
@@ -127,6 +136,13 @@ public class Robot extends TimedRobot {
 		Scheduler.getInstance().run();
 		SmartDashboard.putNumber("Encoder count", drive.getDistance());
 		SmartDashboard.putNumber("Angle", drive.gyro.getAngle());
+		SmartDashboard.putNumber("Cube x position", pixy.getCubeCenter());
+		SmartDashboard.putBoolean("isCubeVisible", pixy.isCubeVisible());
+		SmartDashboard.putNumber("Distance", sonar.getDistance());
+		SmartDashboard.putNumber("VectorComponentX", VectorValues.vectorComponentX);
+		SmartDashboard.putNumber("VectorComponentY", VectorValues.vectorComponentY);
+		SmartDashboard.putNumber("Encoder Distance", VectorValues.encoderDistance);
+		SmartDashboard.putNumber("Magnitude", VectorValues.getMagnitude());
 		//SmartDashboard.putNumber("Angle", drive.ahrs.getAngle());
 		//SmartDashboard.putBoolean("AHRS", drive.ahrs.isConnected());
 	}
@@ -149,6 +165,9 @@ public class Robot extends TimedRobot {
 	public void teleopPeriodic() {
 		Scheduler.getInstance().run();
 		SmartDashboard.putNumber("Encoder count", drive.getDistance());
+		SmartDashboard.putNumber("Cube x position", pixy.getCubeCenter());
+		SmartDashboard.putBoolean("isCubeVisible", pixy.isCubeVisible());
+		SmartDashboard.putNumber("Distance", sonar.getDistance());
 		//canSystem.runMotor1(m_oi.driveStick.getRawAxis(2));
 	}
 
