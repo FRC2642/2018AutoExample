@@ -8,14 +8,16 @@
 package org.usfirst.frc.team2642.robot;
 
 import org.usfirst.frc.team2642.robot.commands.ExampleCommand;
-import org.usfirst.frc.team2642.robot.commands.commandgroups.CenterStartAutoCommandGroup;
-import org.usfirst.frc.team2642.robot.commands.commandgroups.LeftStartAutoCommandGroup;
-import org.usfirst.frc.team2642.robot.commands.commandgroups.RightStartAutoCommandGroup;
-import org.usfirst.frc.team2642.robot.commands.commandgroups.VectorExample;
+import org.usfirst.frc.team2642.robot.commands.commandgroups.fullpaths.LStart_Switch_LSwitch_LScale;
+import org.usfirst.frc.team2642.robot.commands.commandgroups.pieces.VectorExample;
+import org.usfirst.frc.team2642.robot.commands.commandgroups.testpaths.CenterStartAutoCommandGroup;
+import org.usfirst.frc.team2642.robot.commands.commandgroups.testpaths.LeftStartAutoCommandGroup;
+import org.usfirst.frc.team2642.robot.commands.commandgroups.testpaths.RightStartAutoCommandGroup;
 import org.usfirst.frc.team2642.robot.subsystems.DriveTrainSystem;
 import org.usfirst.frc.team2642.robot.subsystems.ExampleSubsystem;
 import org.usfirst.frc.team2642.robot.subsystems.PixySubsystem;
 import org.usfirst.frc.team2642.robot.subsystems.SonarSubsystem;
+import org.usfirst.frc.team2642.robot.utilities.AutoSelector;
 import org.usfirst.frc.team2642.robot.utilities.RoboRioLogger;
 import org.usfirst.frc.team2642.robot.utilities.VectorValues;
 
@@ -109,18 +111,11 @@ public class Robot extends TimedRobot {
 	@Override
 	public void autonomousInit() {
 		drive.gyro.reset();
-		//drive.ahrs.reset();
-		m_autonomousCommand = m_chooser.getSelected();
-		/*drive.pidControllerLeft.enable();
-		drive.pidControllerLeft.setPercentTolerance(0);
-		drive.pidControllerRight.enable();
-		drive.pidControllerRight.setPercentTolerance(0);*/
-		/*
-		 * String autoSelected = SmartDashboard.getString("Auto Selector",
-		 * "Default"); switch(autoSelected) { case "My Auto": autonomousCommand
-		 * = new MyAutoCommand(); break; case "Default Auto": default:
-		 * autonomousCommand = new ExampleCommand(); break; }
-		 */
+		//m_autonomousCommand = m_chooser.getSelected();
+	
+		AutoSelector a = new AutoSelector();
+		a.selectAuto();
+		m_autonomousCommand = a.autoCommand;
 		
 		// schedule the autonomous command (example)
 		if (m_autonomousCommand != null) {
@@ -143,8 +138,6 @@ public class Robot extends TimedRobot {
 		SmartDashboard.putNumber("VectorComponentY", VectorValues.vectorComponentY);
 		SmartDashboard.putNumber("Encoder Distance", VectorValues.encoderDistance);
 		SmartDashboard.putNumber("Magnitude", VectorValues.getMagnitude());
-		//SmartDashboard.putNumber("Angle", drive.ahrs.getAngle());
-		//SmartDashboard.putBoolean("AHRS", drive.ahrs.isConnected());
 	}
 
 	@Override

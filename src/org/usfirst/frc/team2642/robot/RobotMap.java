@@ -48,4 +48,6 @@ public class RobotMap {
 	public static double circumference = wheelDiameter * Math.PI;
 	public static double pulsesPerInch = (pulsesPerRev / circumference) * gearRatio;
 	public static double inchesPerPulse = (circumference / pulsesPerRev) * gearRatio;
+	
+	public static int autoDialPort = 2;
 }

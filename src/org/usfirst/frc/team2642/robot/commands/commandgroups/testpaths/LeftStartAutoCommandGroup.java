@@ -1,7 +1,7 @@
-package org.usfirst.frc.team2642.robot.commands.commandgroups;
+package org.usfirst.frc.team2642.robot.commands.commandgroups.testpaths;
 
 import org.usfirst.frc.team2642.robot.commands.DriveByGyro;
-import org.usfirst.frc.team2642.robot.commands.PlaceHolderCommand;
+import org.usfirst.frc.team2642.robot.commands.WaitCommand;
 import org.usfirst.frc.team2642.robot.commands.TurnByGyro;
 
 import edu.wpi.first.wpilibj.command.CommandGroup;
@@ -9,6 +9,7 @@ import edu.wpi.first.wpilibj.command.CommandGroup;
 /**
  *
  */
+@SuppressWarnings("unused")
 public class LeftStartAutoCommandGroup extends CommandGroup {
 
     public LeftStartAutoCommandGroup() {

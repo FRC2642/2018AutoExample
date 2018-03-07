@@ -6,10 +6,10 @@ import edu.wpi.first.wpilibj.command.Command;
 /**
  *
  */
-public class PlaceHolderCommand extends Command {
+public class WaitCommand extends Command {
 	Timer timer = new Timer();
 	double t = 0.0;
-    public PlaceHolderCommand(double seconds) {
+    public WaitCommand(double seconds) {
         this.t = seconds;
     }
 

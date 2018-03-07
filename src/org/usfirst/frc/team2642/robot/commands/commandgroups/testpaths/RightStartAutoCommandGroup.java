@@ -1,7 +1,7 @@
-package org.usfirst.frc.team2642.robot.commands.commandgroups;
+package org.usfirst.frc.team2642.robot.commands.commandgroups.testpaths;
 
 import org.usfirst.frc.team2642.robot.commands.DriveByGyro;
-import org.usfirst.frc.team2642.robot.commands.PlaceHolderCommand;
+import org.usfirst.frc.team2642.robot.commands.WaitCommand;
 import org.usfirst.frc.team2642.robot.commands.TurnByGyro;
 
 import edu.wpi.first.wpilibj.command.CommandGroup;
@@ -9,6 +9,7 @@ import edu.wpi.first.wpilibj.command.CommandGroup;
 /**
  *
  */
+@SuppressWarnings("unused")
 public class RightStartAutoCommandGroup extends CommandGroup {
 
     public RightStartAutoCommandGroup() {
@@ -16,7 +17,7 @@ public class RightStartAutoCommandGroup extends CommandGroup {
     	//addSequential(new DriveByGyro(0, .8, 96, false));
     	
     	//Drive to right scale
-    	addSequential(new DriveByGyro(0, .9, 96, false));
+    	/*addSequential(new DriveByGyro(0, .9, 96, false));
     	addSequential(new DriveByGyro(0, .9, 74, false));
     	addSequential(new DriveByGyro(-40, .8, 56, false));
     	addSequential(new DriveByGyro(-10, .7, 24, false));
@@ -27,15 +28,7 @@ public class RightStartAutoCommandGroup extends CommandGroup {
     	addSequential(new DriveByGyro(0, -.8, 8, false));
     	addSequential(new PlaceHolderCommand(1.5));
     	addSequential(new TurnByGyro(-161, 2));
-    	addSequential(new DriveByGyro(-163, .8, 18, false));
-    	
-    	//Drive to right side of switch
-    	/*addSequential(new DriveByGyro(15, .6, 60, false));
-    	addSequential(new DriveByGyro(0, .6, 90, false));
-    	addSequential(new TurnByGyro(-90, 1));
-    	addSequential(new DriveByGyro(-90, .6, 12, false));
-    	addSequential(new PlaceHolderCommand(3));
-    	addSequential(new TurnByGyro(0, 1));*/
+    	addSequential(new DriveByGyro(-163, .8, 18, false));*/
     	
     	//Drive to right side of switch then to right side of scale
     	/*addSequential(new DriveByGyro(0, .8, 140, false));

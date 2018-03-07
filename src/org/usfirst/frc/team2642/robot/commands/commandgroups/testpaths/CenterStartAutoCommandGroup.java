@@ -1,9 +1,9 @@
-package org.usfirst.frc.team2642.robot.commands.commandgroups;
+package org.usfirst.frc.team2642.robot.commands.commandgroups.testpaths;
 
 import org.usfirst.frc.team2642.robot.commands.DriveByGyro;
 import org.usfirst.frc.team2642.robot.commands.DriveToCubeCommand;
 import org.usfirst.frc.team2642.robot.commands.FindCubeCommand;
-import org.usfirst.frc.team2642.robot.commands.PlaceHolderCommand;
+import org.usfirst.frc.team2642.robot.commands.WaitCommand;
 import org.usfirst.frc.team2642.robot.commands.TurnByGyro;
 
 import edu.wpi.first.wpilibj.command.CommandGroup;
@@ -11,6 +11,7 @@ import edu.wpi.first.wpilibj.command.CommandGroup;
 /**
  *
  */
+@SuppressWarnings("unused")
 public class CenterStartAutoCommandGroup extends CommandGroup {
 
     public CenterStartAutoCommandGroup() {
@@ -45,7 +46,7 @@ public class CenterStartAutoCommandGroup extends CommandGroup {
     	addSequential(new TurnByGyro(180, 2));
     	addSequential(new DriveByGyro(180, .7, 24, false));*/
     	
-    	//(Basic left) go to left side of swich
+    	//go to left side of swich
     	/*addSequential(new DriveByGyro(0, .8, 6, false));
     	addSequential(new DriveByGyro(-60, .8, 113, false));
     	addSequential(new DriveByGyro(-50, .8, 2, false));

@@ -1,4 +1,4 @@
-package org.usfirst.frc.team2642.robot.commands.commandgroups;
+package org.usfirst.frc.team2642.robot.commands.commandgroups.pieces;
 
 import org.usfirst.frc.team2642.robot.commands.DriveByVector;
 import org.usfirst.frc.team2642.robot.commands.FindCubeCommand;
