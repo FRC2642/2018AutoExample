@@ -30,16 +30,16 @@ public class DriveByVector extends Command {
 
     // Called just before this Command runs the first time
     protected void initialize() {
+    	Robot.drive.resetEncoders();
     }
 
     // Called repeatedly when this Command is scheduled to run
     protected void execute() {
-    	encoderValue = Robot.drive.getPulses();
-    	
+    	double currentPulses;
     	double currentHeading = Robot.pixy.getCubeCenter();
     	double headingCorrection = pixyCorrection.calculateCorrection(140, currentHeading);
     	double currentDistance = Robot.sonar.getDistance();
-    	double powerCorrection = pixyCorrection.calculateCorrection(distance, currentDistance);
+    	double powerCorrection = sonarCorrection.calculateCorrection(distance, currentDistance);
     	if (headingCorrection > .25) {
     		headingCorrection = .25;
     	}
@@ -49,7 +49,7 @@ public class DriveByVector extends Command {
     	double power = basePower + powerCorrection;
     	if (Robot.pixy.getCubeCenter() < 150) {
     		leftPower = (power - headingCorrection);
-    		rightPower = (power+ headingCorrection);
+    		rightPower = (power + headingCorrection);
     	}
     	else if (Robot.pixy.getCubeCenter() > 130) {
     		leftPower = (power + headingCorrection);
@@ -60,20 +60,22 @@ public class DriveByVector extends Command {
     		rightPower = power;
     	}
     	Robot.drive.tankMove(leftPower, rightPower);
-
-    	encoderValue = Robot.drive.getPulses() - encoderValue;
-    	VectorValues.vectorComponentX += (Math.sin(Robot.drive.getCurrentHeading()) * encoderValue);
-    	VectorValues.vectorComponentY += (Math.cos(Robot.drive.getCurrentHeading()) * encoderValue);
-    	VectorValues.encoderDistance = Robot.drive.getPulses();
+    	
+    	currentPulses = Robot.drive.getPulses();
+    	encoderValue = currentPulses - VectorValues.lastEncoderPulses;
+    	VectorValues.lastEncoderPulses = currentPulses;
+    	VectorValues.vectorComponentX += (Math.sin(Robot.drive.getCurrentHeading() * (Math.PI / 180 )) * encoderValue);
+    	VectorValues.vectorComponentY += (Math.cos(Robot.drive.getCurrentHeading() * (Math.PI / 180 )) * encoderValue);
     }
 
     // Make this return true when this Command no longer needs to run execute()
     protected boolean isFinished() {
-    	return (Robot.sonar.getDistance() < distance);
+    	return (Robot.sonar.getDistance() <= distance);
     }
 
     // Called once after isFinished returns true
     protected void end() {
+    	Robot.drive.brake();
     }
 
     // Called when another command which requires one or more of the same

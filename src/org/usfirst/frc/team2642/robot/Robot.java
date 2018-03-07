@@ -8,7 +8,6 @@
 package org.usfirst.frc.team2642.robot;
 
 import org.usfirst.frc.team2642.robot.commands.ExampleCommand;
-import org.usfirst.frc.team2642.robot.commands.commandgroups.fullpaths.LStart_Switch_LSwitch_LScale;
 import org.usfirst.frc.team2642.robot.commands.commandgroups.pieces.VectorExample;
 import org.usfirst.frc.team2642.robot.commands.commandgroups.testpaths.CenterStartAutoCommandGroup;
 import org.usfirst.frc.team2642.robot.commands.commandgroups.testpaths.LeftStartAutoCommandGroup;
@@ -136,7 +135,6 @@ public class Robot extends TimedRobot {
 		SmartDashboard.putNumber("Distance", sonar.getDistance());
 		SmartDashboard.putNumber("VectorComponentX", VectorValues.vectorComponentX);
 		SmartDashboard.putNumber("VectorComponentY", VectorValues.vectorComponentY);
-		SmartDashboard.putNumber("Encoder Distance", VectorValues.encoderDistance);
 		SmartDashboard.putNumber("Magnitude", VectorValues.getMagnitude());
 	}
 
